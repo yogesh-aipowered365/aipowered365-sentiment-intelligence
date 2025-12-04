@@ -1,0 +1,566 @@
+/* =======================================================
+   AIpowered365 – Sentiment Intelligence UI (v4)
+   ======================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- Page layout ---------- */
+
+body {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+    background: radial-gradient(circle at top, #E0ECFF 0%, #F9FAFB 40%, #F3F4F6 100%) !important;
+    color: #111827 !important;
+}
+
+.gradio-container {
+    max-width: 1100px !important;
+    margin: 32px auto 40px !important;
+    padding: 0 16px !important;
+}
+
+/* =======================================================
+   HERO (top panel)
+   ======================================================= */
+
+.aip365-hero {
+    position: relative;
+    padding: 32px 280px 30px 32px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #EEF2FF 55%, #DBEAFE 100%);
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 22px 40px rgba(148, 163, 184, 0.55);
+    margin-bottom: 26px;
+    overflow: hidden;
+}
+
+/* Thin gradient bar on top */
+.aip365-hero::before {
+    content: "";
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    top: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #7C3AED, #22D3EE);
+}
+
+/* Very soft glow in top-left */
+.aip365-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at top left,
+            rgba(129, 140, 248, 0.16) 0,
+            transparent 55%);
+}
+
+/* ---------- Hero left content ---------- */
+
+.aip365-hero-title {
+    position: relative;
+    font-size: 2.05rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+    padding-left: 32px;
+}
+
+/* Brain icon before title */
+.aip365-hero-title::before {
+    content: "🧠";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 1.4rem;
+}
+
+/* Small "AIpowered365 Labs" tag above title */
+.aip365-hero-title::after {
+    content: "AIpowered365 Labs";
+    position: absolute;
+    left: 0;
+    top: -22px;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(17, 24, 39, 0.8);
+    color: #E5E7EB;
+}
+
+/* Subtitle */
+.aip365-hero-subtitle {
+    position: relative;
+    font-size: 1rem;
+    color: #4B5563;
+    margin-bottom: 16px;
+}
+
+/* Pills row */
+.aip365-hero-pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-right: 8px;
+    margin-bottom: 6px;
+    background: #E0E7FF;
+    color: #3730A3;
+    border: 1px solid #C7D2FE;
+}
+
+/* Add a tiny icon in each pill via first character */
+.aip365-hero-pill:nth-of-type(1)::before {
+    content: "⚙️";
+}
+
+.aip365-hero-pill:nth-of-type(2)::before {
+    content: "⬇️";
+}
+
+.aip365-hero-pill:nth-of-type(3)::before {
+    content: "🚀";
+}
+
+/* How to use */
+.aip365-hero-how {
+    position: relative;
+    margin-top: 16px;
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+/* Replace default bullets with nicer ones via emoji */
+.aip365-how-item {
+    margin: 4px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.aip365-how-item::before {
+    content: "•";
+    position: absolute;
+    left: 4px;
+    top: 0;
+    color: #7C3AED;
+    font-weight: 700;
+}
+
+/* ---------- Hero right (logo) ---------- */
+
+.aip365-hero-right {
+    position: absolute;
+    top: 26px;
+    right: 30px;
+}
+
+.aip365-hero-right img {
+    height: 140px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 28px rgba(15, 23, 42, 0.55));
+}
+
+/* =======================================================
+   PREMIUM PANELS – Single & Batch cards
+   ======================================================= */
+
+.aip365-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 24px 26px;
+    margin-bottom: 26px;
+    background: transparent;
+    /* background handled by ::before */
+    border: 1px solid #E5E7F5;
+    /* soft indigo border */
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+    transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+
+/* Soft glassy gradient fill inside the card */
+.aip365-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at top left,
+            #EEF2FF 0%,
+            #F9FAFF 40%,
+            #FFFFFF 100%);
+    z-index: -1;
+}
+
+/* Batch card gets a slightly different tint (indigo → cyan) */
+.aip365-card:nth-of-type(2)::before {
+    background: radial-gradient(circle at top left,
+            #ECFEFF 0%,
+            #F5FDFF 40%,
+            #FFFFFF 100%);
+}
+
+/* Subtle inner highlight on hover */
+.aip365-card:hover {
+    transform: translateY(-2px);
+    border-color: #CBD5FF;
+    box-shadow: 0 22px 48px rgba(15, 23, 42, 0.12);
+}
+
+
+/* Section titles with icons */
+.aip365-section-title {
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 14px;
+    position: relative;
+    padding-left: 26px;
+}
+
+/* Default marker (fallback) */
+.aip365-section-title::before {
+    content: "💬";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+}
+
+/* First card = single sentiment icon */
+.aip365-card:first-of-type .aip365-section-title::before {
+    content: "✍️";
+}
+
+/* Second card = batch icon */
+.aip365-card:nth-of-type(2) .aip365-section-title::before {
+    content: "📂";
+}
+
+/* Keep inner Gradio blocks visually flat */
+.aip365-card .block,
+.aip365-card .form,
+.aip365-card .form>div {
+    background-color: transparent !important;
+}
+
+/* Labels & inputs */
+.aip365-card label {
+    color: #374151 !important;
+    font-weight: 500;
+}
+
+textarea,
+input[type="text"],
+input[type="number"] {
+    background: #F9FAFB !important;
+    border-radius: 10px !important;
+    border: 1px solid #D1D5DB !important;
+    color: #111827 !important;
+    padding: 10px 12px !important;
+    font-size: 0.95rem !important;
+}
+
+/* Brand-coloured focus state */
+textarea:focus,
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none !important;
+    border-color: #7C3AED !important;
+    box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.4);
+}
+
+/* =======================================================
+   PRIMARY BUTTONS (Analyze / Run Batch)
+   ======================================================= */
+
+.aip365-button button,
+button.aip365-button,
+.aip365-button>button {
+    width: 100%;
+    background: linear-gradient(135deg, #7C3AED, #22D3EE) !important;
+    color: #FFFFFF !important;
+    border-radius: 999px !important;
+    padding: 11px 20px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.4);
+    font-size: 1rem !important;
+    text-transform: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.aip365-button button:hover,
+button.aip365-button:hover,
+.aip365-button>button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.03);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.35);
+}
+
+/* =======================================================
+   FILE UPLOAD & DOWNLOAD
+   ======================================================= */
+
+/*[data-testid="file"] [class*="border-dashed"] {
+    border-color: #9CA3AF !important;
+    border-width: 2px !important;
+    border-style: dashed !important;
+    background: #F9FAFB !important;
+}*/
+
+/* =======================================================
+   CLEAR, VISIBLE UPLOAD / DOWNLOAD BOXES
+   ======================================================= */
+
+/* Applies to both upload area and download/preview area */
+[class*="border-dashed"] {
+    border-width: 2px !important;
+    border-style: dashed !important;
+    border-color: #4B5563 !important;
+    /* darker grey = clearly visible */
+    background: #F3F4F6 !important;
+    /* light grey tint */
+    border-radius: 16px !important;
+    box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.45);
+}
+
+/* Nice hover feedback when user moves over the box */
+[class*="border-dashed"]:hover {
+    background: #E5E7EB !important;
+    border-color: #111827 !important;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.55);
+}
+
+
+/* =======================================================
+   SENTIMENT LABEL BADGES
+   ======================================================= */
+
+.aip365-label-badge {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #FFFFFF !important;
+}
+
+.aip365-label-positive {
+    background: linear-gradient(135deg, #22C55E, #4ADE80);
+}
+
+.aip365-label-negative {
+    background: linear-gradient(135deg, #EF4444, #F97373);
+}
+
+.aip365-label-neutral {
+    background: linear-gradient(135deg, #6B7280, #9CA3AF);
+}
+
+/* =======================================================
+   FOOTER
+   ======================================================= */
+
+.aip365-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6B7280;
+    margin-top: 28px;
+}
+
+/* -------------------------------------------------------
+   PREMIUM SECTION ICONS
+------------------------------------------------------- */
+
+/* Single Sentiment (first card) */
+.aip365-card:nth-of-type(1) .aip365-section-title::before {
+    content: "💬";
+    /* clean speech bubble */
+    font-size: 1.1rem;
+    background: none;
+    box-shadow: none;
+    color: #7C3AED;
+    /* brand purple */
+}
+
+/* Batch Sentiment (second card) */
+.aip365-card:nth-of-type(2) .aip365-section-title::before {
+    content: "📊";
+    /* table/spreadsheet icon */
+    font-size: 1.2rem;
+    background: none;
+    box-shadow: none;
+    color: #0EA5E9;
+    /* brand cyan */
+}
+
+/* =======================================================
+   MOBILE RESPONSIVE TWEAKS
+   ======================================================= */
+
+@media (max-width: 768px) {
+
+    /* Overall layout */
+    .gradio-container {
+        max-width: 100% !important;
+        margin: 16px auto 24px !important;
+        padding: 0 10px !important;
+    }
+
+    /* HERO: make it more compact & stacked */
+    .aip365-hero {
+        padding: 18px 14px 18px 14px;
+        border-radius: 18px;
+    }
+
+    /* Move "AIpowered365 Labs" tag above hero nicely */
+    .aip365-hero-title {
+        font-size: 1.45rem;
+        padding-left: 0;
+        /* remove left icon padding on mobile */
+        margin-top: 12px;
+    }
+
+    .aip365-hero-title::before {
+        display: none;
+        /* hide big brain emoji on mobile */
+    }
+
+    .aip365-hero-title::after {
+        left: 0;
+        top: -22px;
+    }
+
+    .aip365-hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .aip365-hero-pill {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        margin-bottom: 4px;
+    }
+
+    /* Logo: move under text & shrink */
+    .aip365-hero-right {
+        position: static;
+        margin: 14px auto 4px;
+        text-align: center;
+    }
+
+    .aip365-hero-right img {
+        height: 90px;
+        filter: drop-shadow(0 8px 18px rgba(15, 23, 42, 0.45));
+    }
+
+    /* Cards: reduce padding & corner radius a bit */
+    .aip365-card {
+        padding: 18px 14px 18px 14px;
+        border-radius: 16px;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .aip365-section-title {
+        font-size: 1rem;
+        padding-left: 42px;
+        /* still room for icon, but tighter */
+    }
+
+    .aip365-section-title::before {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Inputs: slightly larger tap targets and text */
+    textarea,
+    input[type="text"],
+    input[type="number"] {
+        font-size: 0.95rem !important;
+        padding: 10px 11px !important;
+    }
+
+    /* Buttons: bigger tap area, full width already */
+    .aip365-button button,
+    button.aip365-button,
+    .aip365-button>button {
+        padding: 12px 16px !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+/* ===========================================================
+   DARK, CLEAR, HIGH-VISIBILITY UPLOAD BOX
+   =========================================================== */
+
+/* Upload / Drag-and-Drop area */
+[data-testid="file"] [class*="border-dashed"] {
+    border-width: 2.5px !important;
+    border-style: dashed !important;
+
+    /* Strong, clean visibility */
+    border-color: rgba(75, 85, 99, 0.85) !important;
+    /* #4B5563 darker grey */
+
+    /* Soft gradient background so the dashed area stands out */
+    background: linear-gradient(135deg,
+            #F3F4F6 0%,
+            #F8FAFC 70%) !important;
+
+    border-radius: 16px !important;
+
+    /* Crisp outline for clarity */
+    box-shadow: 0 0 0 1px rgba(75, 85, 99, 0.4) !important;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Hover effect – makes it obvious it's clickable */
+[data-testid="file"] [class*="border-dashed"]:hover {
+    border-color: #111827 !important;
+    /* nearly black */
+    background: #E5E7EB !important;
+    /* slightly darker grey */
+    box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.4) !important;
+}
+
+/* ===========================================================
+   DARK, CLEAR, HIGH-VISIBILITY UPLOAD BOX
+   =========================================================== */
+
+/* Upload / Drag-and-Drop area */
+[data-testid="file"] [class*="border-dashed"] {
+    border-width: 2.5px !important;
+    border-style: dashed !important;
+
+    /* Strong, clean visibility */
+    border-color: rgba(75, 85, 99, 0.85) !important;
+    /* #4B5563 darker grey */
+
+    /* Soft gradient background so the dashed area stands out */
+    background: linear-gradient(135deg,
+            #F3F4F6 0%,
+            #F8FAFC 70%) !important;
+
+    border-radius: 16px !important;
+
+    /* Crisp outline for clarity */
+    box-shadow: 0 0 0 1px rgba(75, 85, 99, 0.4) !important;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Hover effect – makes it obvious it's clickable */
+[data-testid="file"] [class*="border-dashed"]:hover {
+    border-color: #111827 !important;
+    /* nearly black */
+    background: #E5E7EB !important;
+    /* slightly darker grey */
+    box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.4) !important;
+}
