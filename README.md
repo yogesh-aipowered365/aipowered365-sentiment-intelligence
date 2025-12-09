@@ -91,7 +91,7 @@ sentiment-app/
 
 ### Hugging Face Spaces (Recommended - Free)
 
-Visit: [AIpowered365 Sentiment App](https://huggingface.co/spaces) *(Link to your space)*
+Visit: [AIpowered365 Sentiment App]) *((https://huggingface.co/spaces/Yogeshaipowered365/Sentiment-Intelligence-app)*
 
 **No setup required** - Just open and start analyzing!
 
