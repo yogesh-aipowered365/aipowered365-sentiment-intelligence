@@ -4,6 +4,7 @@ import pandas as pd
 from pathlib import Path
 from typing import Tuple, List, Dict, Any, Iterable
 from model import analyze_sentiment, analyze_sentiments_bulk
+from config import CONTACT_INFO, BUSINESS_OFFERINGS
 
 # =========================
 # Configurable app settings
@@ -315,6 +316,34 @@ with gr.Blocks(elem_id="aipowered365-app") as demo:
             fn=process_file,
             inputs=[file_input, text_column, export_as],
             outputs=[output_file, preview_df],
+        )
+
+    # ---------- Contact & Business Offerings ----------
+    with gr.Column(elem_classes=["aip365-card"]):
+        gr.Markdown("### 🤝 Looking for More?",
+                    elem_classes=["aip365-section-title"])
+
+        # Business offerings
+        offerings_md = "**Interested in our solutions?**\n\n"
+        for key, offering in BUSINESS_OFFERINGS.items():
+            offerings_md += f"**{offering['title']}** - {offering['description']}\n"
+            offerings_md += f"_{offering['price']}_\n\n"
+
+        gr.Markdown(offerings_md)
+
+        # Contact information
+        contact_md = "**Get in Touch:**\n\n"
+        contact_md += f"📧 Email: [{CONTACT_INFO['email']}](mailto:{CONTACT_INFO['email']})\n\n"
+        contact_md += f"📞 Phone: {CONTACT_INFO['phone']}\n\n"
+        contact_md += f"💬 WhatsApp: [{CONTACT_INFO['whatsapp']}](https://wa.me/{CONTACT_INFO['whatsapp'].replace(' ', '').replace('+', '')})\n\n"
+        contact_md += f"🌐 Website: [{CONTACT_INFO['website']}]({CONTACT_INFO['website']})\n\n"
+        contact_md += f"🔗 LinkedIn: [{CONTACT_INFO['linkedin']}]({CONTACT_INFO['linkedin']})\n\n"
+
+        gr.Markdown(contact_md)
+
+        gr.Markdown(
+            "💡 **Have questions?** Feel free to reach out for API access, premium features, or enterprise solutions.",
+            elem_classes=["aip365-note"]
         )
 
     # ---------- Footer ----------
