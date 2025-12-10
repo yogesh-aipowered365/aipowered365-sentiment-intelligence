@@ -1,8 +1,8 @@
 # Contact and Business Information
 CONTACT_INFO = {
     "email": "contact@aipowered365.com",
-    "phone": "+44 (0) 744689339",
-    "whatsapp": "+44 (0) 744689339",
+    "phone": "+44 (0) 7446893391",
+    "whatsapp": "+44 (0) 7446893391",
     "website": "https://aipowered365.com/",
     "linkedin": "https://www.linkedin.com/in/yogeshkumar-patel-568365127",
 }
@@ -17,7 +17,7 @@ BUSINESS_OFFERINGS = {
     "premium": {
         "title": "Premium Features",
         "description": "Advanced analytics, custom models, priority support, and batch processing at scale",
-        "price": "Starting at $99/month",
+        "price": "Starting at £79/month",
     },
     "enterprise": {
         "title": "Enterprise & B2B",
