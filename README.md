@@ -142,8 +142,8 @@ The app will launch on `http://localhost:7860`
 
 📧 **Get in Touch:**
 - Email: [contact@aipowered365.com](mailto:contact@aipowered365.com)
-- Phone: +44 (0) 744689339
-- WhatsApp: [+44 (0) 744689339](https://wa.me/447446893339)
+- Phone: +44 (0) 7446893391
+- WhatsApp: [+44 (0) 7446893391](https://wa.me/4474468933391)
 - Website: [https://aipowered365.com/](https://aipowered365.com/)
 - LinkedIn: [Yogesh Kumar Patel](https://www.linkedin.com/in/yogeshkumar-patel-568365127)
 
