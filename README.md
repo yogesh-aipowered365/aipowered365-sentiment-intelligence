@@ -133,7 +133,7 @@ The app will launch on `http://localhost:7860`
 - Advanced analytics and custom models
 - Priority support
 - Batch processing at scale
-- Starting at $99/month
+- Starting at £79/month
 
 ### 🏢 Enterprise & B2B
 - Custom solutions and on-premise deployment
